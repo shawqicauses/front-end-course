@@ -1,4 +1,4 @@
-<!-- DONE REVIEWING: GITHUB COMMIT -->
+<!-- DONE REVIEWING: GITHUB COMMIT 1️⃣ -->
 
 # Front-End Web Development Course
 
@@ -52,5 +52,9 @@ This course will focus on building developers and practicing writing code as muc
 2. As a follow-up to the previous point, learning is dynamic, not linear. Refrain from expecting that you will understand everything that you will be learning. While learning new things, you will start having a clearer picture of previous things, so as we move in the course, things will begin triggering in your brain, and you will start connecting new things to previous things and vice versa.
 3. We will start slowly in the course, but we will be making good progress together, so again, please trust the process and give yourself the chance.
 4. Finally, we will have many additional sessions (not counted in the course total hours) to practice what we have learned and learn new skills together, such as Tailwind CSS, other UI libraries, Next.JS, Git, GitHub, and many more.
+
+## Lectures
+
+1. [Lecture 01 - Introduction and HTML Basics](./lectures/lecture-01/content.md)
 
 I wish you all luck, Shawqi.
