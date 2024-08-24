@@ -1,0 +1,93 @@
+<form>
+  <h2>Apply For Act-Hub Courses</h2>
+
+  <label>
+    Name
+    <input type="text" placeholder="Your name" required>
+  </label>
+
+  <br>
+
+  <label>
+    Age
+    <input type="number" placeholder="Your age in numbers" required>
+  </label>
+
+  <br>
+
+  <label>
+    Phone Number
+    <input type="tel" placeholder="Your phone number in correct format" required>
+  </label>
+
+  <br>
+
+  <label>
+    Email
+    <input type="email" placeholder="Your valid email" required>
+  </label>
+
+  <br>
+
+  <label for="password-input">Password</label>
+  <input id="password-input" type="password" placeholder="Your password">
+
+  <h4>Your Gender</h4>
+
+  <!-- 
+    Form Data:
+    gender-input: male
+    skills-input: html - css
+    -->
+
+  <input name="gender-input" id="male-radio-input" type="radio" value="male">
+  <label for="male-radio-input">I am a Male</label>
+
+  <input name="gender-input" id="female-radio-input" type="radio" value="female">
+  <label for="female-radio-input">I am a Female</label>
+
+  <h4>Select Course</h4>
+
+  <input name="courses-input" id="course-1" type="radio" value="course-1" checked>
+  <label for="course-1">Front-End Development</label>
+
+  <input name="courses-input" id="course-2" type="radio" value="course-2" />
+  <label for="course-2">Back-End Development</label>
+
+  <input name="courses-input" id="course-3" type="radio" value="course-3" />
+  <label for="course-3">UI/UX</label>
+
+  <br>
+
+  <!-- Second Option -->
+
+  <select>
+    <option selected>Select a course</option>
+    <option value="course-1">Front-End Development</option>
+    <option value="course-2">Back-End Development</option>
+    <option value="course-3">UI/UX</option>
+  </select>
+
+  <h4>Select your skills</h4>
+
+  <input name="skills-input" id="html" type="checkbox" value="html" checked>
+  <label for="html">HTML</label>
+
+  <input name="skills-input" id="css" type="checkbox" value="css" checked>
+  <label for="css">CSS</label>
+
+  <input name="skills-input" id="javascript" type="checkbox" value="javascript">
+  <label for="javascript">JavaScript</label>
+
+  <br>
+
+  <label for="message-textarea">Your message</label>
+
+  <br>
+
+  <textarea id="message-textarea" rows="5" cols="40" disabled></textarea>
+
+  <br>
+
+  <button type="submit">Sign up</button>
+</form>
