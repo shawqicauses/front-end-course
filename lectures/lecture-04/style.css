@@ -1,0 +1,89 @@
+ul li {
+  list-style: disc;
+}
+
+ol li {
+  list-style: decimal;
+}
+
+li {
+  list-style: none;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.purple {
+  color: purple;
+  background-color: pink;
+}
+
+.orange {
+  color: orangered;
+  background-color: papayawhip;
+}
+
+.green {
+  color: green;
+  background-color: palegoldenrod;
+}
+
+button {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+#read-more-button {
+  color: green;
+  background-color: palegreen;
+}
+
+button[type="button"] {
+  color: blue;
+  background-color: paleturquoise;
+}
+
+button[type="submit"] {
+  color: purple;
+  background-color: pink;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  cursor: default;
+}
+
+a[href] {
+  text-decoration: underline;
+  color: brown;
+  cursor: pointer;
+}
+
+.box {
+  width: 150px;
+  height: 150px;
+  color: orangered;
+  background-color: peachpuff;
+
+  /*
+  padding: 20px; (20px for top/right/bottom/left)
+  padding: 20px 10px; (20px for top/bottom 10px for left/right)
+  padding: 5px 10px 20px 15px; (5px top 10px right 20px bottom 15px left)
+  */
+
+  padding: 5px 10px 20px 15px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: orangered;
+
+  /*
+  border: 2px solid orangered;
+  */
+
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 10;
+}

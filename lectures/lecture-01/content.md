@@ -62,3 +62,111 @@ In short, HTML puts information on a website page, CSS positions that informatio
 **_HTML is the (noun), CSS is the (adjective), and JavaScript is the (verb) :)_**
 
 So, let us start by building our first HTML page!
+
+Whenever we want to start a new website project, we should create a folder on our local machine (our computer) and then make an `index.html` file. You can name it whatever you want, but you must follow the name with the `.html`
+
+You can create a file using Windows Explorer in Windows or Finder on MacOS and then double-click on it, and your computer will open it in the browser, showing only a blank page. Then, you can open the file with NotePad in Windows or TextEdit in MacOS or other text editors and start editing your page. However, we will use VSC (Visual Studio Code) to create and edit it, and VSC will be our main code editor.
+
+Go and create a folder somewhere on your desktop, then open VSC. Go to the file menu at the top. Choose the open folder option and open the folder you have just created.
+
+After opening your folder, you will see its name on the left sidebar. When you hover over the folder's name, four icons will appear. The icon that looks like a file with the plus symbol on top of it is the one for creating a new file. Click on it to create a new file, name it `index.html`, and let us go.
+
+## HTML Syntax
+
+HTML, the language that underpins our website's content, is responsible for structuring text, links, lists, images, inputs, buttons, and more. To populate our website with such content, we must employ HTML elements, which require HTML tags and their syntax.
+
+We have a blog article web page and want to add a main heading. We need to use an HTML element/tag called `h1`. The same applies if we need to add a paragraph. We need to use the `p` HTML element/tag.
+
+HTML elements/tags have a simple syntax or structure that consists of four main parts.
+
+1. Opening tag: `<opening-tag>`
+2. Attributes (Optional): `<opening-tag attribute-name="attribute-value">`
+3. Closing tag: `</closing-tag>`
+4. Tag Content: `<opening-tag>Tag Content</closing-tag>`
+
+So, if we want to add a central heading to our blog article web page, it will look like this:
+
+```html
+<h1>Let us Learn Front-End Development</h1>
+```
+
+Notice that we did not use any attributes in the tag because we do not need any for now, but we will learn and use them soon.
+
+## HTML Headings/Paragraphs
+
+We have a 6-level of headings in HTML from one to six. The most crucial heading (the main heading) is always `h1` tags, and the sub-headings after it are `h2`, `h3`, `h4`, `h5`, and `h6`.
+
+Remember, for better SEO, you must always have just one `h1` on your web page, but you can have multiple from the other heading levels.
+
+Example:
+
+```html
+<h1>Why React.JS Is The Best JavaScript Framework/Library</h1>
+```
+
+We use the `p` element/tag for paragraphs. So clear and straightforward.
+
+Example:
+
+```html
+<p>This is a paragraph</p>
+```
+
+## HTML Anchor Links and Attributes
+
+For links in HTML, we use the `a` element/tag, which refers to the anchor link, but if you use the tag like the previous tags like this:
+
+```html
+<a>https://github.com/shawqicauses</a>
+```
+
+It will just show a non-clickable link on the page, which differs from what we want. We need to add a text that says, "Click here to visit my GitHub profile." When we click it, it sends us to my profile on GitHub. To do so, we must use a specific attribute to hold the link called `href`, which refers to Hyper Reference, and then we put the text in the content between the opening and closing tags.
+
+Example:
+
+```html
+<a href="https://github.com/shawqicauses">
+  Click here to visit my GitHub profile.
+</a>
+```
+
+Congratulations, you just have written your first HTML tag with an HTML attribute.
+
+## HTML Images
+
+To add images to your web page, first download an image and put it in the same folder as your `.html` file. Second, we will use a new HTML tag and two attributes, the `img` tag, `src` and `alt` attributes.
+
+The `src` attribute is where we will add the path to the image. The `alt` attribute is where we will add text and has two main jobs. First, it will appear if, in some cases, the image can not load and show on the web page. Second, it will help improve our web page accessibility by giving the screen readers a text they can read for people who can not see the image.
+
+Example: let us say that you have created a folder called images, and you put your image there.
+
+```html
+<img src="images/image.png" alt="My Fancy Image" />
+```
+
+Have you noticed something? We did not close our `img` tag. Why? The `img` tag is self-closing. It does not accept content, so we do not need a closing tag.
+
+## HTML Lists
+
+We have three types of lists in HTML, but we will talk about two of them for now: the ordered list and the unordered list. To add a list in HTML, you must first decide which type of lists you want to use their elements/tags, `ol` for the ordered list and `ul` for the unordered list. Afterward, you must add your list items using the `li` element.
+
+Example for ordered list:
+
+```html
+<ol>
+  <li>First Item</li>
+  <li>Second Item</li>
+  <li>Third Item</li>
+</ol>
+```
+
+Example for unordered list:
+
+```html
+<ul>
+  <li>HTML</li>
+  <li>CSS</li>
+  <li>JavaScript</li>
+  <li></li>
+</ul>
+```
