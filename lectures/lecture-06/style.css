@@ -1,0 +1,182 @@
+/*
+Lecture 06:
+- Width/Height/Min-Max (DONE)
+- Sizing Units (px - % - rem - vh - vw - em) (DONE)
+- Positions (static - absolute - relative - sticky - fixed...)
+- Displays (none - block - inline - inline-block - flex - grid) (DONE - without flex and grid...)
+- Transforms (May Be?)
+*/
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  /* 1 REM = 10 PX */
+  font-size: 10px;
+}
+
+/*
+- WIDTH SIZING UNIT
+RELATIVE TO THE PARENT
+*/
+
+.parent {
+  width: 1000px;
+}
+
+.box {
+  background-color: #00ff00;
+  padding: 20px;
+  border: 5px solid #000000;
+}
+
+.box-1 {
+  width: 75%;
+  margin-bottom: 10px;
+}
+
+.box-2 {
+  width: 50%;
+  height: 75vh;
+  max-height: 300px;
+  min-height: 150px;
+  margin-bottom: 10px;
+}
+
+.box-1 p {
+  font-size: 16px;
+}
+
+/*
+- REM SIZING UNIT
+1 REM = 16 PX (BY DEFAULT)
+RELATIVE TO THE ROOT'S (HTML ELEMENT) FONT SIZE
+*/
+
+.box-2 p {
+  font-size: 1rem;
+}
+
+/*
+- EM SIZING UNIT
+1 EM = 16 PX (BY DEFAULT)
+RELATIVE TO THE PARENT'S FONT SIZE
+*/
+
+.box-3 {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.box-3 p {
+  font-size: 1em;
+}
+
+/* VIEW-PORT WIDTH/HEIGHT */
+
+.man-united {
+  width: 500px;
+
+  color: white;
+  background-color: black;
+  margin-bottom: 10px;
+}
+
+.liverpool {
+  width: 50%;
+  background-color: red;
+  margin-bottom: 10px;
+}
+
+.arsenal {
+  width: 50vw;
+  background-color: orangered;
+  margin-bottom: 10px;
+}
+
+.man-city {
+  width: 50vh;
+  color: darkcyan;
+  background-color: powderblue;
+}
+
+.link[href] {
+  text-decoration: none;
+  color: white;
+  background-color: brown;
+}
+
+.link-hidden {
+  display: none;
+}
+
+/*
+- DISPLAY: INLINE vs. BLOCK vs. INLINE-BLOCK
+1. Block adds line-break - inline does not
+2. Block accepts width/height - inline does not
+3. Block accepts top/bottom in padding/margin - inline does not
+
+- INLINE-BLOCK
+1. Does not add line-break
+2. Accepts width/height
+3. Accepts top/bottom in padding/margin
+*/
+
+/* BY DEFAULT: ANCHOR ELEMENTS ARE INLINE */
+/* BY DEFAULT: DIV ELEMENT ARE BLOCK */
+
+.link,
+.author {
+  width: 200px;
+  height: 100px;
+  padding: 20px;
+  margin: 20px;
+}
+
+.link-inline-block {
+  display: inline-block;
+}
+
+.author {
+  background-color: red;
+}
+
+/* BY DEFAULT HTML ELEMENTS HAS A STATIC POSITION */
+/* BY DEFAULT ELEMENTS WITH POSITION ABSOLUTE WILL BE RELATIVE TO THE BODY ELEMENT */
+
+.javascript {
+  position: relative;
+  min-width: 100vw;
+  min-height: 100vh;
+  color: black;
+  background-color: yellow;
+  padding: 20px;
+}
+
+.java,
+.php,
+.python {
+  width: 100px;
+  height: 100px;
+  padding: 10px;
+  margin: 10px;
+  color: white;
+}
+
+.java {
+  background-color: brown;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.python {
+  background-color: lightskyblue;
+}
+
+.php {
+  background-color: purple;
+}
