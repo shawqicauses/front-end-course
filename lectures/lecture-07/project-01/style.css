@@ -1,0 +1,106 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --background-color: #0a0a0a;
+  --foreground-color: #fafafa;
+  --card-color: #171717;
+  --link-color: #262626;
+  --paragraph-color: #a3a3a3;
+  --primary-color: #84cc16;
+}
+
+body {
+  font-family: sans-serif;
+  color: var(--foreground-color);
+  background-color: var(--background-color);
+}
+
+main {
+  width: 100%;
+  max-width: 400px;
+  background-color: var(--card-color);
+  padding: 40px;
+  border-radius: 8px;
+
+  /* OLD-SCHOOL WAY OF CENTERING IN HTML/CSS */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.profile-info {
+  position: relative;
+}
+
+.profile-image {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 100px;
+  height: 100px;
+  /* IN CASE YOUR IMAGE IS NOT A SQUARE USE THIS */
+  object-fit: cover;
+
+  border-radius: 50%;
+  margin-bottom: 24px;
+}
+
+.profile-info h1,
+.profile-info h2 {
+  font-weight: 500;
+  text-align: center;
+}
+
+.profile-info h1 {
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.profile-info h2 {
+  font-size: 16px;
+  color: var(--primary-color);
+  margin-bottom: 36px;
+}
+
+.profile-info p {
+  font-size: 14px;
+  font-style: italic;
+  text-align: center;
+  color: var(--paragraph-color);
+  margin-bottom: 24px;
+}
+
+.profile-links {
+  list-style: none;
+}
+
+.profile-links li:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.profile-links li a {
+  display: inline-block;
+  width: 100%;
+
+  font-size: 14px;
+  text-decoration: none;
+  text-align: center;
+
+  color: var(--foreground-color);
+  background-color: var(--link-color);
+  padding: 16px;
+  border-radius: 8px;
+
+  transition: 100ms all ease-in-out;
+}
+
+.profile-links li a:hover {
+  color: var(--background-color);
+  background-color: var(--foreground-color);
+}
