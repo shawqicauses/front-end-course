@@ -1,0 +1,142 @@
+/* IN CSS WE HAVE: static - relative - absolute - sticky - fixed */
+/* BY DEFAULT ALL HTML ELEMENTS HAS `static` POSITION */
+/* TO SET THE EXACT POSITIONING FOR (absolute - sticky - fixed) WE USE (top - right - bottom - left) PROPERTIES */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* CSS VARIABLES */
+
+/* :root === html */
+:root {
+  /* SETTING CSS VARIABLES `--variable-name: variable-value` */
+  --primary-color: #22c55e;
+  --primary-light-color: #86efac;
+  --primary-dark-color: #15803d;
+  --primary-foreground-color: #f0fdf4;
+
+  --secondary-color: #06b6d4;
+  --secondary-light-color: #67e8f9;
+  --secondary-dark-color: #0e7490;
+  --secondary-foreground-color: #ecfeff;
+
+  --primary-border: 2px solid var(--primary-dark-color);
+  --secondary-border: 2px solid var(--secondary-dark-color);
+
+  --square-size: 100px;
+  --space-sm: 8px;
+  --space: 12px;
+  --space-lg: 24px;
+}
+
+.skills {
+  /* USING CSS VARIABLES `var(--variable-name)` */
+  width: var(--square-size);
+  height: var(--square-size);
+  color: var(--primary-foreground-color);
+  background-color: var(--primary-color);
+  padding: var(--space-lg);
+  border: var(--primary-border);
+  margin: var(--space-lg);
+}
+
+.skills-small {
+  /* OVERRIDING CSS VARIABLES */
+  --square-size: 80px;
+}
+
+.javascript {
+  position: relative;
+  min-width: 100vw;
+  min-height: 100vh;
+  color: white;
+  background-color: black;
+  padding: var(--space-lg);
+}
+
+.javascript p {
+  margin-bottom: var(--space);
+}
+
+.java,
+.php,
+.python,
+.c {
+  width: var(--square-size);
+  height: var(--square-size);
+  padding: var(--space-lg);
+}
+
+.java {
+  position: sticky;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  background-color: var(--secondary-color);
+}
+
+.php {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background-color: var(--primary-color);
+}
+
+.python {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: var(--primary-color);
+}
+
+.c {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  background-color: var(--secondary-color);
+}
+
+/* TRANSFORMS */
+/* TRANSFORMS FUNCTIONS WE ARE GOING TO LEARN: */
+/* translateX() - translateY() - translate() - rotate() - scaleX() - scaleY() - scale() */
+/* TRANSITIONS */
+
+.button-primary {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary-foreground-color);
+  background-color: var(--primary-color);
+  padding: var(--space-sm) var(--space);
+  border: var(--primary-border);
+  border-radius: var(--space-sm);
+  margin: var(--space);
+
+  /*
+  transition-duration: 200ms;
+  transition-property: background-color;
+  transition-timing-function: linear;
+  */
+
+  transition: 200ms all linear;
+  cursor: pointer;
+}
+
+.button-primary:hover {
+  /* USING MARGIN IN ANIMATIONS WILL AFFECT THE PAGE'S LAYOUT (LOGICAL ERROR) */
+  /* margin-top: -4px; - DO NOT DO THIS */
+  color: var(--primary-color);
+  background-color: var(--primary-foreground-color);
+  transform: translate(4px, -4px);
+}
+
+.skills-animate {
+  transition: 250ms all ease-in-out;
+}
+
+.skills-animate:hover {
+  transform: scaleX(0.8) scaleY(0.5) rotate(180deg);
+}
