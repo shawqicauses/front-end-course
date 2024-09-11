@@ -1,0 +1,73 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Display Values: inline - block - inline-block - hidden - flex - grid */
+
+/*
+- Flex vs. Grid
+Flex: controls one-direction
+Grid: controls two-direction
+*/
+
+/* Flex: Flex Parent / Flex Children */
+
+/* Flex Parent */
+.attack-on-titan {
+  min-width: 100vw;
+  min-height: 85vh;
+  background-color: peachpuff;
+  padding: 1.25rem;
+
+  display: flex;
+  /* Flex Parent Properties */
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  /* Positioning in Main-Axis */
+  justify-content: center;
+
+  /* Positioning in Cross-Axis */
+  align-items: center;
+
+  /* Positioning for multiple-rows */
+  /* align-content: center; */
+
+  /* To add space between flex children/items */
+  gap: 1.25rem;
+}
+
+.box {
+  color: green;
+  background-color: palegreen;
+  padding: 1.25rem;
+  border: 0.125rem solid green;
+}
+
+/* Flex Children Properties */
+.box-1 {
+  /* Positioning individual flex children in Cross-Axis */
+  align-self: flex-start;
+}
+
+.box-3 {
+  align-self: flex-end;
+}
+
+.gaza {
+  min-width: 100vw;
+  min-height: 100vh;
+  color: white;
+  background-color: black;
+
+  display: flex;
+}
+
+.gaza div {
+  width: 10rem;
+  height: 10rem;
+  background-color: red;
+  margin: auto;
+}
