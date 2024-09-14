@@ -1,0 +1,189 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.container {
+  width: 100%;
+  height: 80%;
+  background-color: palegreen;
+  padding: 1.25rem;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.box {
+  color: white;
+  background-color: green;
+  padding: 0.8rem;
+  border: 0.2rem solid white;
+}
+
+.box-1 {
+  width: 10rem;
+  order: 1;
+  /* flex-grow: 1; */
+}
+
+.box-2 {
+  order: 4;
+  /* flex-grow: 2; */
+}
+
+.box-3 {
+  width: 20rem;
+  order: 3;
+  flex-shrink: 0;
+}
+
+.box-4 {
+  /* Defines default size of an element before the remaining space is distributed */
+  /* flex-basis: 40%; */
+  order: 2;
+}
+
+.basis-example,
+.flex-example {
+  width: 100vw;
+  height: 100vh;
+  color: white;
+  background-color: paleturquoise;
+  padding: 0.8rem;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.basis-box,
+.flex-box {
+  background-color: blue;
+  padding: 1.2rem;
+  border: 0.2rem solid white;
+}
+
+/*
+IGNORING PADDING/BORDER/GAP
+- SPACE CALCULATION
+FLEX CONTAINER AVAILABLE SPACE: 100 PX
+BOX 01: 40 PX
+AVAILABLE SPACE: 60 PX
+BOX 03: 40 PX
+BOX 02: 20 PX
+*/
+
+.basis-box-1 {
+  /* flex-grow/flex-shrink/flex-basis affects flex children's `width` by default - if you changed the direction to `column` it will affect flex children's `height` */
+  flex-basis: 20rem;
+}
+
+.basis-box-2 {
+  flex-grow: 2;
+}
+
+.basis-box-3 {
+  flex-grow: 1;
+}
+
+.basis-box-4 {
+  /*
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 20rem;
+  */
+
+  /* flex: flex-grow flex-shrink flex-basis */
+  /* flex: 1 === flex: 1 1 0% */
+  /* flex: 2 === flex: 2 1 0% */
+  flex: 1;
+}
+
+.flex-example {
+  background-color: pink;
+}
+
+.flex-box {
+  background-color: palevioletred;
+}
+
+.flex-box-1 {
+  /* flex: 1 1 0% */
+  flex: 1;
+}
+
+.flex-box-2 {
+  /* flex: 2 1 0% */
+  flex: 2;
+}
+
+.flex-box-3 {
+  /* flex: 3 1 0% */
+  flex: 3;
+}
+
+.dashboard-example {
+  font-family: system-ui, -apple-system, sans-serif;
+  width: 100vw;
+  height: 100vh;
+  color: white;
+  background-color: peachpuff;
+  padding: 1.2rem;
+
+  display: flex;
+  gap: 1.2rem;
+}
+
+.sidebar {
+  background-color: peru;
+  padding: 1.2rem;
+  border-radius: 0.8rem;
+
+  flex-shrink: 0;
+  flex-basis: 12rem;
+}
+
+.content {
+  color: peru;
+  padding: 1.2rem;
+  border: 0.2rem dashed peru;
+  border-radius: 0.8rem;
+
+  /* grow: 1 / shrink: 1 / basis: 0% */
+  flex: 1;
+}
+
+.content h1 {
+  margin-bottom: 0.8rem;
+}
+
+.insights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+}
+
+.insight {
+  color: white;
+  background-color: peru;
+  padding: 0.4rem;
+  border-radius: 0.4rem;
+  flex: 1;
+}
