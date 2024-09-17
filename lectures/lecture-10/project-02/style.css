@@ -1,0 +1,237 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  font-family: "Montserrat", sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --white-color: #ffffff;
+  --background-color: #f8fafc;
+  --foreground-color: #1e293b;
+
+  --primary-color: #4f46e5;
+  --primary-light-color: #6366f1;
+  --primary-dark-color: #3730a3;
+  --primary-color-opacity: rgba(79, 70, 229, 0.25);
+}
+
+html {
+  font-size: 10px;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  font-size: 1.6rem;
+  background-color: var(--background-color);
+}
+
+svg {
+  --size: 2rem;
+  width: var(--size);
+  height: var(--size);
+}
+
+.score-card {
+  display: flex;
+  width: 100%;
+  max-width: 768px;
+  margin: auto;
+}
+
+.score-card,
+.score-result,
+.score-summary {
+  border-radius: 4rem;
+}
+
+.score-card {
+  background-color: var(--white-color);
+}
+
+.score-result,
+.score-summary {
+  flex: 1;
+}
+
+.score-result,
+.score-summary {
+  padding: 4rem;
+}
+
+.score-result {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+
+  /* linear-gradient: 1. Direction (text/number) 2. First Color 3. Second Color */
+  background-image: linear-gradient(
+    to bottom,
+    var(--primary-light-color),
+    var(--primary-color)
+  );
+}
+
+.score-result h2,
+.score-summary h2 {
+  font-size: 2.4rem;
+}
+
+.score-result h2 {
+  font-weight: 500;
+  color: var(--white-color);
+  opacity: 0.75;
+}
+
+.score-result-numbers p,
+.score-result-text h1,
+.score-result-text p {
+  text-align: center;
+}
+
+.score-result-numbers {
+  --size: 20rem;
+  width: var(--size);
+  height: var(--size);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  color: var(--white-color);
+  background-image: linear-gradient(
+    to bottom,
+    var(--primary-dark-color),
+    var(--primary-color-opacity)
+  );
+
+  border-radius: 100%;
+}
+
+.score-result-main {
+  font-size: 7.2rem;
+  font-weight: 700;
+}
+
+.score-result-sub {
+  font-size: 1.8rem;
+  font-weight: 500;
+  opacity: 0.5;
+}
+
+.score-result-text h1 {
+  font-size: 3.2rem;
+  font-weight: 600;
+  color: var(--white-color);
+  margin-bottom: 1.6rem;
+}
+
+.score-result-text p {
+  width: 100%;
+  max-width: 28rem;
+  font-size: 1.8rem;
+  color: white;
+  margin-bottom: 2rem;
+  opacity: 0.6;
+}
+
+.score-summary {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white-color);
+}
+
+.score-summary h2 {
+  font-weight: 600;
+  color: var(--foreground-color);
+  margin-bottom: 2rem;
+}
+
+.score-summary-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.score-summary-list li {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  color: var(--list-item-color);
+  background-color: var(--list-item-background-color);
+  padding: 1.6rem 2rem;
+  border-radius: 1.2rem;
+}
+
+.score-summary-list li.red {
+  --list-item-color: #ef4444;
+  --list-item-background-color: #fef2f2;
+}
+
+.score-summary-list li.yellow {
+  --list-item-color: #eab308;
+  --list-item-background-color: #fefce8;
+}
+
+.score-summary-list li.green {
+  --list-item-color: #22c55e;
+  --list-item-background-color: #f0fdf4;
+}
+
+.score-summary-list li.blue {
+  --list-item-color: #3b82f6;
+  --list-item-background-color: #eff6ff;
+}
+
+.score-summary-list li svg {
+  --size: 2rem;
+  width: var(--size);
+  height: var(--size);
+}
+
+.score-summary-list li h3 {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.score-summary-list li p {
+  font-weight: 600;
+  color: var(--foreground-color);
+  margin-left: auto;
+}
+
+.score-summary-list li p span {
+  color: var(--foreground-color);
+}
+
+.slash,
+.score-total {
+  opacity: 0.5;
+}
+
+.slash {
+  margin: 0 0.4rem;
+}
+
+.button-primary {
+  width: 100%;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--white-color);
+  background-color: var(--foreground-color);
+  padding: 1.6rem;
+  border: none;
+  border-radius: 10rem;
+  margin-top: auto;
+}
