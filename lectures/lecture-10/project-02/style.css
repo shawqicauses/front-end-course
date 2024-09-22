@@ -41,15 +41,15 @@ svg {
 
 .score-card {
   display: flex;
+  flex-direction: column;
   width: 100%;
   max-width: 768px;
   margin: auto;
 }
 
-.score-card,
-.score-result,
-.score-summary {
-  border-radius: 4rem;
+.score-result {
+  border-bottom-left-radius: 4rem;
+  border-bottom-right-radius: 4rem;
 }
 
 .score-card {
@@ -138,7 +138,6 @@ svg {
 
 .score-result-text p {
   width: 100%;
-  max-width: 28rem;
   font-size: 1.8rem;
   color: white;
   margin-bottom: 2rem;
@@ -148,13 +147,13 @@ svg {
 .score-summary {
   display: flex;
   flex-direction: column;
+  gap: 2rem;
   background-color: var(--white-color);
 }
 
 .score-summary h2 {
   font-weight: 600;
   color: var(--foreground-color);
-  margin-bottom: 2rem;
 }
 
 .score-summary-list {
@@ -234,4 +233,28 @@ svg {
   border: none;
   border-radius: 10rem;
   margin-top: auto;
+}
+
+/* Media Queries */
+@media only screen and (min-width: 540px) {
+  .score-result-text p {
+    max-width: 40rem;
+  }
+}
+
+/* Tablet Design */
+@media only screen and (min-width: 768px) {
+  .score-card {
+    flex-direction: row;
+  }
+
+  .score-card,
+  .score-result,
+  .score-summary {
+    border-radius: 4rem;
+  }
+
+  .score-result-text p {
+    max-width: 28rem;
+  }
 }

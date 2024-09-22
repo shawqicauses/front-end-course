@@ -11,5 +11,82 @@ body {
 }
 
 html {
+  /* = 10 PX */
   font-size: 62.5%;
+}
+
+img {
+  width: 100%;
+}
+
+.container {
+  min-height: 75%;
+  background-color: palegoldenrod;
+  padding: 2rem;
+}
+
+.box {
+  height: 40rem;
+  font-size: 4.8rem;
+  color: white;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* desktop-first */
+/*
+- box-1: red in desktop - green in tablet - blue in mobile.
+*/
+
+/* Desktop Design */
+.box-1 {
+  background-color: red;
+}
+
+/* 768 - 1024 - etc: called break-points */
+/* You can use as much break-points as you need. */
+/* You can use as many @media as you need.*/
+@media only screen and (max-width: 1024px) {
+  /* Tablet Design */
+  .box-1 {
+    background-color: green;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  /* Mobile Design */
+  .box-1 {
+    background-color: blue;
+  }
+}
+
+/* Print Media Query: just an example */
+@media print {
+  .box-1 {
+    display: none;
+  }
+}
+
+/* mobile-first */
+/*
+- box-2: purple in mobile - orange in tablet - black in desktop.
+*/
+
+/* Mobile Design (0 - 768px) */
+.box-2 {
+  background-color: purple;
+}
+
+@media only screen and (min-width: 768px) {
+  /* Table Design */
+  .box-2 {
+    background-color: orange;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  /* Desktop Design */
+  .box-2 {
+    background-color: black;
+  }
 }
