@@ -1,0 +1,86 @@
+<!--
+0. Introduction to CSS Grid:
+- one of the most powerful features in CSS.
+- but it is also so complex that it is not easy to learn.
+- CSS Grid is the latest (2017) and greatest layout algorithm, we can use it to build complex layouts.
+
+- CSS Grid is a 2-dimensional layout system, but, the unusual part of it is that the grid structure (the rows and columns) are defined purely in CSS - not in HTML. CSS Grid allows us to manage the layout entirely from within CSS.
+
+1. display: grid
+- by default, CSS Grid uses a single column and will create rows as needed, based on the number of children/items it has - this is known as implicit grid.
+
+- implicit grid is dynamic, it will add and remove rows based on the number of children/items it has.
+
+- by default the height of the grid is auto, which means it will grow and shrink based on the content (its children/items). But, if we set a fixed height for the grid, the height will be equally distributed among the rows, which means it will affect the height of the children/items.
+
+2. grid-template-columns
+- by default, the grid will have a single column, but we can define multiple columns by using the grid-template-columns property.
+
+- we can define columns by using any valid CSS length unit (px, rem, em, %, etc). Additionally, we can use the fr unit to define the width of each column as a fraction of the available space.
+
+3. unit battles: fr vs. %
+
+4. grid-gaps/gaps
+
+5. implicit and explicit rows/grid-template-rows
+
+6. repeat(number, unit) -> repeat(3, 1fr)
+
+7. assigning CSS Grid properties to grid children/items
+- by default, CSS Grid will assign each child/item to the first available grid cell (row and column).
+
+- the grid-column/grid-row properties can be used to assign a specific grid cell to a child/item.
+
+- when we use grid-column and grid-row with two values and a / between them, it will be a short-hand for grid-column-start/grid-column-end and grid-row-start/grid-row-end.
+
+8. negative values
+
+9. grid-template-areas
+- one of the coolest features of CSS Grid.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lecture 12 - CSS Grid</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="box box-1">Box 1</div>
+      <div class="box box-2">Box 2</div>
+      <div class="box box-3">Box 3</div>
+    </div>
+    <div class="explicit-container">
+      <div class="explicit-box explicit-box-1">Box 1</div>
+      <div class="explicit-box explicit-box-2">Box 2</div>
+      <div class="explicit-box explicit-box-3">Box 3</div>
+      <div class="explicit-box explicit-box-4">Box 4</div>
+      <div class="explicit-box explicit-box-5">Box 5</div>
+      <div class="explicit-box explicit-box-6">Box 6</div>
+      <div class="explicit-box explicit-box-7">Box 7</div>
+      <div class="explicit-box explicit-box-8">Box 8</div>
+      <div class="explicit-box explicit-box-9">Box 9</div>
+      <div class="explicit-box explicit-box-10">Box 10</div>
+      <div class="explicit-box explicit-box-11">Box 11</div>
+      <div class="explicit-box explicit-box-12">Box 12</div>
+    </div>
+    <div class="parent">
+      <div class="child child-1">Child 01</div>
+      <div class="child child-2">Child 02</div>
+      <div class="child child-3">Child 03</div>
+      <div class="child child-4">Child 04</div>
+      <p class="child child-5">Child 05</p>
+      <div class="child child-6">Child 06</div>
+    </div>
+    <div>
+      <div class="holy-grail">
+        <header>Header</header>
+        <aside>Aside</aside>
+        <main>Main</main>
+        <footer>Footer</footer>
+      </div>
+    </div>
+  </body>
+</html>

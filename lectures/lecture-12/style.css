@@ -1,0 +1,155 @@
+* {
+  font-family: sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: palegoldenrod;
+}
+
+.container {
+  height: 100%;
+  width: 100rem;
+
+  display: grid;
+  grid-template-columns: 2fr 7fr 1fr;
+  gap: 4.8rem;
+
+  color: white;
+  background-color: peru;
+  margin-bottom: 2rem;
+}
+
+.box {
+  font-size: 4.8rem;
+  padding: 2rem;
+}
+
+.box-1 {
+  background-color: brown;
+}
+
+.box-2 {
+  background-color: black;
+}
+
+.box-3 {
+  background-color: orange;
+}
+
+.explicit-container {
+  height: 100rem;
+  width: 100rem;
+
+  display: grid;
+  /* explicit grid */
+  grid-template-columns: repeat(3, 1fr); /* = 1fr 1fr 1fr 1fr 1fr */
+  grid-template-rows: 1fr 2fr 3fr;
+  gap: 1.2rem;
+
+  background-color: black;
+  margin-bottom: 2rem;
+}
+
+.explicit-box {
+  font-size: 2rem;
+  padding: 0.5rem;
+  color: black;
+  background-color: white;
+}
+
+.parent {
+  width: 100rem;
+  height: 100rem;
+
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+
+  background-color: palevioletred;
+  margin-bottom: 2rem;
+}
+
+.child {
+  font-size: 2rem;
+  color: white;
+  background-color: purple;
+  padding: 1.2rem;
+}
+
+.child-2 {
+  /* grid-column: 3; */
+  grid-column-start: 3;
+}
+
+.child-5 {
+  /* grid-column: 2 / 8; */
+  grid-column-start: 2;
+  grid-column-end: 8;
+  grid-row: 2 / 3;
+  background-color: paleturquoise;
+}
+
+.child-6 {
+  /* grid-row: -3; */
+  /* grid-column: -4; */
+  grid-row: 3 / 4;
+  grid-column: 1 / -1;
+  background-color: cornflowerblue;
+}
+
+.holy-grail {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 20rem 1fr 10rem;
+  grid-template-areas: "my-header my-header" "my-aside my-main" "my-footer my-footer";
+  gap: 1.2rem;
+  background-color: palegreen;
+}
+
+header,
+aside,
+main,
+footer {
+  font-size: 3.2rem;
+  color: white;
+  background-color: green;
+  border: 0.2rem solid white;
+  padding: 1.2rem;
+}
+
+/*
+header,
+footer {
+  grid-column: 1 / -1;
+}
+*/
+
+header {
+  grid-area: my-header;
+}
+
+aside {
+  grid-area: my-aside;
+}
+
+main {
+  grid-area: my-main;
+}
+
+footer {
+  grid-area: my-footer;
+}
