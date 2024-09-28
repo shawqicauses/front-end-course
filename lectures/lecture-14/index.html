@@ -1,0 +1,118 @@
+<!--
+0. CSS Cascade, Specificity, and Inheritance.
+- these three concepts are the foundation of CSS.
+- they control how CSS properties are applied to an element and how conflicts between different CSS declarations are resolved.
+
+1. Conflicting Rules
+- the way the CSS cascade behaves is a key to understanding CSS.
+- cascade and specificity are closely related concepts, and they are the mechanisms that control which rule applies when there is such a conflict.
+- inheritance means that some CSS properties by default inherit values set on the current element's parent and some do not.
+- these three concepts work together.
+
+2. CSS Cascade
+- at a very simple level, it means that the origin, the cascade layer, and the order of CSS rules matter.
+- when two rules from the same cascade layer apply and both have equal specificity, the one that is defined last in the CSS file wins (will be used).
+
+3. CSS Specificity
+- is the algorithm that the browser uses to decide which property value is applied to an element.
+- if multiple CSS declarations have different selectors that configure the same property with different values, specificity decides the property value that gets applied.
+- an element selector is less specific, it has less weight. Pseudo-elements selectors have the same specificity as element selectors.
+- a class selector is more specific, it has more weight. Attribute selectors and pseudo-classes have the same specificity as class selectors.
+- an ID selector is the most specific, it has the highest weight.
+
+4. CSS Inheritance
+- some CSS property values set on the parent elements are inherited by their child elements, and some are not.
+
+5. Controlling Inheritance
+- CSS provides special universal property values for controlling inheritance. Every CSS property accepts these values.
+- inherit: set the property value to be the same as that of its (direct) parent element. Basically, it turns on inheritance.
+- initial: set the property value to be the initial value of that property.
+- unset: set the property value to be the natural value of the property. It means if the property is naturally inherited it will act like `inherit`, other-wise it will act like `initial`.
+
+6. Resetting CSS `all: unset;`
+
+7. More About CSS Cascade/Specificity
+- there are three factors to consider (the listed items below are sorted from the less important to the most important):
+
+A. Source Order
+B. Specificity
+C. Importance
+
+7. A. Source Order
+- the one that comes last in the source order wins.
+- source order only matters when the rules has the same specificity.
+
+7. B.1. Specificity
+- the listed selectors below are sorted from the less specific to the most specific:
+
+1. Universal Selector (*)
+2. Type/Element Selector (h1 - p - section)
+3. Class Selector (.box-1)
+4. Attribute Selector ([href])
+5. ID Selector (#box-1)
+6. Inline Style (style="color: red;")
+7. !important
+
+7. B.2. Specificity Calculations
+- the amount of specificity a selector has is measured using three different things/components, ID (identifier), class (class selector, attribute selector, or pseudo-class), and element (element selector or pseudo-element).
+- [INLINE STYLE]-[ID]-[CLASS]-[ELEMENT]
+
+8. CSS Box Shadows/Drop Shadows/Blur
+
+9. CSS Overflow
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CSS in Theory</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="my-body">
+    <div class="specificity-calculation">
+      <div
+        id="s-box-1"
+        class="s-box s-box-1"
+        data-s="s"
+        style="background-color: purple"
+      >
+        Box 01
+      </div>
+      <div class="s-box s-box-2">Box 02</div>
+      <div class="s-box s-box-3">Box 03</div>
+    </div>
+    <div class="cascade-example">
+      <div class="box box-1">Box 01</div>
+      <div class="box box-2">Box 02</div>
+    </div>
+    <div class="specificity-example">
+      <a href="#" id="link-1" class="link-1">Link 01</a>
+      <a href="#" class="link-1">Link 02</a>
+      <a href="../lecture-13/project-03/index.html">Project 03</a>
+    </div>
+    <ul class="inheritance-example">
+      <li>1</li>
+      <li>2</li>
+      <li class="inheritance-item">
+        3
+        <ul>
+          <li>3.1</li>
+          <li>
+            3.2
+            <ul>
+              <li>3.2.1</li>
+              <li>3.2.2</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <div class="another-parent">
+      <div class="controlling-inheritance">
+        <p>This is a paragraph.</p>
+        <a href="#inheritance">Link</a>
+        <p class="another-paragraph">This is another paragraph</p>
+      </div>
+    </div>
+    <button>Click!</button>
+  </body>
+</html>

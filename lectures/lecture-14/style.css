@@ -1,0 +1,175 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.my-body {
+  padding: 0;
+}
+
+body {
+  color: green;
+  padding: 2rem;
+}
+
+.cascade-example,
+.specificity-example {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.cascade-example .box {
+  font-size: 3.2rem;
+  color: white;
+  background-color: cadetblue;
+  padding: 1.2rem;
+}
+
+.cascade-example .box {
+  background-color: peru;
+}
+
+.cascade-example .box-1 {
+  color: darkgreen;
+  background-color: lightgreen;
+}
+
+.cascade-example .box-2 {
+  background-color: green;
+}
+
+#link-1 {
+  color: green;
+}
+
+a[href="#"] {
+  color: peru;
+}
+
+.link-1 {
+  color: orangered;
+}
+
+a {
+  display: inline-block;
+  font-size: 3.2rem;
+  text-decoration: none;
+  color: brown;
+  padding: 1.2rem;
+  border: 0.2rem solid currentColor;
+  margin: 1.2rem;
+}
+
+.inheritance-example {
+  list-style: none;
+  font-size: 2.4rem;
+  color: green;
+}
+
+.inheritance-item {
+  color: peru;
+}
+
+.another-parent {
+  padding: 2rem;
+}
+
+.controlling-inheritance {
+  font-size: 7.2rem;
+  color: black;
+  background-color: palegreen;
+  border: 1rem solid green;
+  padding: inherit; /* 2rem */
+}
+
+.controlling-inheritance p {
+  font-size: initial;
+  padding: inherit; /* 2rem */
+  border: inherit;
+}
+
+.controlling-inheritance a {
+  color: initial;
+  padding: initial;
+  border: initial;
+  margin: initial;
+}
+
+.controlling-inheritance .another-paragraph {
+  color: unset;
+  font-size: unset;
+  padding: unset;
+  border: unset;
+}
+
+button {
+  font-size: 4.8rem;
+  list-style: 1;
+  color: peachpuff;
+  background-color: brown;
+  padding: 1.2rem 3.2rem;
+  border: 0.5rem solid peru;
+  margin: 1.2rem;
+}
+
+.specificity-calculation {
+  display: flex;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.s-box {
+  font-size: 4.8rem;
+  color: white;
+  background-color: cadetblue;
+  padding: 1.2rem;
+}
+
+.s-box-1 {
+  background-color: peru !important;
+}
+
+#s-box-1 {
+  background-color: blue;
+}
+
+div.s-box-1[data-s="s"] {
+  background-color: red;
+}
+
+div.s-box-1 {
+  background-color: green;
+}
+
+.s-box-1 {
+  background-color: palevioletred;
+}
+
+/*
+SELECTOR                  !      Inline      ID      CLASS      ELEMENT
+.s-box-1                  0      0           0       1          0
+div.s-box-1               0      0           0       1          1
+div.s-box-1[data-s="s"]   0      0           0       2          1
+#s-box-1                  0      0           1       0          0
+style attribute           0      1           0       0          0
+!important                1      0           0       0          0
+*/
+
+/*
+.s-box-1                  0-0-0-1-0
+div.s-box-1               0-0-0-1-1
+div.s-box-1[data-s="s"]   0-0-0-2-1
+#s-box-1                  0-0-1-0-0
+style attribute           0-1-0-0-0
+!important                1-0-0-0-0
+*/
