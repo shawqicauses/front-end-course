@@ -1,0 +1,78 @@
+<!--
+An Introduction to JavaScript
+- what is special about it, what we can achieve with it.
+
+0. What is JavaScript?
+- fun assignment: JavaScript History!
+- JavaScript was initially created to make web pages alive (more interactive).
+- JavaScript is so different from another language called Java.
+- when JavaScript was created, it initially had another name: "LiveScript". But Java was so popular at that time, so it was decided that positioning a new language (JavaScript) as a younger sibling of Java would be a good idea (marketing strategy).
+- as it evolved, it became a fully independent language with its own specifications called ECMAScript, and now it has no relation to Java at all.
+
+1. JavaScript Engines
+- JavaScript can run in many different environments, such as web browsers, Node.JS (V8 Engine) or Bun for web servers, and Electron for desktop applications.
+- it can run on any device that has a special program called a JavaScript engine.
+- the JavaScript engine is responsible for running and executing JavaScript code.
+- web browsers has an embedded engine sometime called JavaScript Virtual Machine.
+- different engines have different code-names. For example:
+1. V8 (Chromium Based Browsers - Chrome, Edge, and Opera).
+2. SpiderMonkey (FireFox Based Browsers - FireFox and Zen).
+3. others (fun assignment search for it).
+
+1.1 How JavaScript Engines Work
+- in over-simplified explanation:
+1. the engine reads "parses" the JavaScript code.
+2. the engine converts "compiles" the JavaScript code into machine code (for computer to be able to understand/execute it).
+3. the machine code runs, pretty fast.
+
+2. What Can/Can Not JavaScript Do in Web Browsers?
+- modern JavaScript is a safe programming language, it does not provide low-level access to the memory or the CPU. Because it was initially created for the browsers, to make web pages alive, it is not intended to be used for low-level programming.
+- JavaScript capabilities depend on the environment it is running in. For instance, Node.JS supports functions that allow JavaScript to read/write files, perform network requests, and more.
+- in browser, JavaScript can do everything related to the web page manipulation, interaction with the user, and the web server.
+- in browser, JavaScript is able to:
+1. add new HTML to the page, change the existing content, and modify styles.
+2. react to user actions, run on mouse click, pointer movements, key presses.
+3. send request over the network to remote servers, download and upload files.
+4. get and set cookies, ask questions to the user, and show messages.
+5. remember the data on the client-side (local storage).
+
+- JavaScript abilities in the browser are limited by the security policy of web browsers, to protect the user's safety. The aim is to prevent an evil web page from accessing private information or harming the user's data or device.
+- examples of restrictions:
+1. JavaScript on web pages can not access the local files on the hard disk, copy/delete them or execute programs. It has no access to the user's OS (operating system).
+2. there are ways for interacting with the user's camera, microphone, and other devices, but it is not possible to do so without user's permission.
+3. Different tabs/windows generally do not know about each other, sometimes they do, this is called Same Origin Policy.
+
+3. JavaScript Console
+
+4. Hello World in JavaScript
+
+4.1 <script /> Tag and JavaScript Files
+- if you set the `src` attribute of the `<script />` tag, the code inside the `<script />` tag will be ignored.
+
+5. Code Structure
+
+5.1 JavaScript Statements/Semicolons/Comments
+
+6. Variables
+- most of the time, we need to work with data/information.
+- variables are used to store data/information.
+- a variable is a named storage for data/information.
+- to create a variable in JavaScript we use the `let` keyword.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Introduction to JavaScript</title>
+  </head>
+  <body>
+    <h1>Hello World in JavaScript</h1>
+    <script>
+      alert("Hello World!");
+      console.log("Hello World!");
+    </script>
+    <script src="index.js">
+      console.log("This will be ignored!");
+    </script>
+  </body>
+</html>
