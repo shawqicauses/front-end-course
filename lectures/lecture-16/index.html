@@ -1,0 +1,101 @@
+<!--
+More About JavaScript Variables/Data Types/Type Conversion
+
+0. Re-fresh our knowledge about JavaScript variables
+let myName = "Shawqi Hatem"; -> Variable Initialization
+let myAge; -> Variable Declaration
+myAge = 30; -> Variable Assignment
+
+let someoneName = "I do not know", someoneAge, someoneJob; -> Declaring Multiple Variables At Once
+
+In memory storage it will look like something like this:
+someoneName = "Shawqi Hatem"
+someoneAge = undefined
+someoneJob = undefined
+
+1. Declaring Variables Using Const
+- to declare a constant (unchanging) variable, we use `const` instead of `let`.
+- variables declared using `const` are called `constants`.
+- constants can not be re-declared/re-assigned a new value.
+- there is wide-spread practice to use constants for aliases for difficult-to-remember values. Such constants are named using capital letters and underscores.
+
+const COLOR_RED = "#F00";
+
+2. Const vs. Let vs. Var
+- const: const declarations must be initialized with a value.
+- const: can not be re-declared/re-assigned a new value.
+- let: can be re-assigned a new value - but can not be re-declared.
+- var: can be re-declared/re-assigned a new value.
+
+- const and let are block-scoped, while var is function-scoped.
+- in strict mode, a ReferenceError will occurred if you try to declare a value without using `const`, `let`, or `var`.
+
+3. Name Things Right (fun assignment search for it)
+
+4. Data Types
+- a value in JavaScript is always of a certain type.
+- we can put any type in a variable. Also, we can re-assign a variable with a different type. Programming languages that allow such things are called dynamically typed languages, meaning that there exist data types, but variables are not typed.
+- there are eight basic data types in JavaScript:
+1. Number
+2. BigInt (fun assignment search for it)
+3. String
+4. Boolean
+5. Undefined
+6. Null
+7. Object
+8. Symbol (fun assignment search for it)
+
+1. Number
+- represents a numeric value (both integers and floating-point numbers).
+- there are many operations for numbers, such as addition, subtraction, multiplication, division, etc.
+- besides regular numbers, there are so-called "special numeric values" that are used in JavaScript, such as `Infinity`, `-Infinity`, and `NaN`.
+- `NaN` stands for "Not a Number", which is a special value that represents a computational error. It is a result of an incorrect or an undefined mathematical operation.
+- mathematical operations are safe in JavaScript.
+
+2. String
+- a string value must be surrounded by quotes: "" - '' - ``
+- no difference between double-quotes and single-quotes.
+- Backticks are "extended functionality" quotes. They allow us to embed variables and expressions into a string by wrapping them in ${}.
+- the expression inside is evaluated and the result becomes a part of the string.
+- statements and expressions?!
+- we will cover more about strings in the upcoming lectures.
+
+3. Boolean
+- a boolean value can be either `true` or `false`.
+- the type is commonly used to store yes/no values.
+- boolean values can also come as a result of comparisons (==, ===, !=, !==, >, <, >=, <=).
+- we will cover more about booleans in the upcoming lectures.
+
+4. The `null` value
+- the special `null` does not belong to any of the types described above.
+- in JavaScript `null` is not a reference to a non-existing object or a null pointer like in some other languages. It is just a special value which represents "nothing", "empty", or "value unknown".
+
+5. The `undefined` value
+- the special `undefined` also stands alone. It makes a type of its own, just like `null`.
+- the meaning of undefined is that the variable has not been assigned a value.
+
+6. Objects
+- the `object` type is special.
+- the other types are called primitive types because their values can contain only one single thing. In contrast, objects are used to store collections of data and more complex entities.
+
+7. The `typeof` operator
+- the `typeof` operator returns the type of a value.
+
+8. Interactions: Alert, Prompt, and Confirm
+- alert, prompt, and confirm are functions to interact with the user in the browser env.
+- alert: shows a message and waits for the user to press "OK".
+- prompt: shows a message and waits for the user to enter a value.
+- confirm: shows a message and waits for the user to press "OK" or "Cancel".
+
+9. Type Conversion
+- next lecture InSha'Allah
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>More About JavaScript Variables/Data Types/Type Conversion</title>
+  </head>
+  <body>
+    <script src="index.js"></script>
+  </body>
+</html>
