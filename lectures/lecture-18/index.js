@@ -63,6 +63,8 @@ Comparisons, Conditional Branching, and Logical Operators
 
 13. Multiple ?: Operators
 
+LECTURE 19
+
 14. Logical Operators
 - there are four logical operators in JavaScript: AND, OR, NOT, and Nullish Coalescing.
 - although they are called logical, they can be applied to values of any type, not only booleans.
@@ -82,6 +84,26 @@ Comparisons, Conditional Branching, and Logical Operators
 - in classical programming, the logical AND operator is meant to manipulate boolean values only, if all of its operands/arguments are true, then the result is true.
 - AND evaluates operands from left to right.
 - it converts each operand to a boolean and finds the first falsy value in its operands and returns it.
+- if all operands are truthy, then it returns the last operand.
+- a value is returned in its original form, without conversion.
+
+17. Precedence Of AND Is Higher Than OR
+
+18. Do Not Replace `if` with `&&` and `||`
+
+19. NOT Operator (!)
+- the boolean NOT operator is represented with the exclamation mark (!).
+- it converts its operand to a boolean and returns the inverse value.
+- a double NOT (!!) converts its operand to a boolean.
+- the precedence of NOT is higher than that of AND and OR.
+
+20. Nullish Coalescing Operator (??)
+- in short, the value is defined if it is not `null` or `undefined`.
+- it returns the first operand that is not `null` or `undefined`.
+- the common use of this operator is to provide a default value for a variable.
+- in a sequence of ?? operators, the first operand that is not `null` or `undefined` is returned. Otherwise, the last operand is returned.
+
+21. Nullish Coalescing (??) vs. Or (||)
 */
 
 console.log("------ Boolean is The Result --------");
