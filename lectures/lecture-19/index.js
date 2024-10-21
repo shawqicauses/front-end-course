@@ -15,20 +15,20 @@ Loops: While and For, Switch Statement
 - this form of syntax should only be used when you want the body of the loop to execute at least once regardless of the condition being truthy.
 
 2. The `for` Loop
-- the `for` loop is more complex, but it is most commonly used loop.
-- for (begin; condition; step (increment/decrement)) { body }
+- the `for` loop is more complex, but it is the most commonly used loop.
+- for (begin; condition; step (increment/decrement or anything you want)) { body }
 - begin: executes once upon entering the loop.
 - condition: checked before every loop iteration.
-- body: rungs again and again while the condition is truthy.
+- body: runs again and again while the condition is truthy.
 - step: executes after the body on each loop iteration.
 
 3. Skipping Parts Of `for` Loop/Breaking The Loop/Continuing The Loop
-- normally, a loop exits when its condition becomes falsy, but we can for the exit at any time using the special `break` statement.
+- normally, a loop exits when its condition becomes falsy, but we can exit at any time using the special `break` statement.
 - we can also exit the current iteration of the loop using the `continue` statement.
 
 4. Switch Statement
 - A `switch` statement can replace multiple `if` statements.
-- if there is not `break` then the execution continues with the next `case` without any checks.
+- if there is no `break` then the execution continues with the next `case` without any checks.
 - expressions can be a `switch`/`case` argument.
 - `case` can be grouped together.
 - `switch` uses `===` operator for comparisons.
