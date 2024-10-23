@@ -2,7 +2,7 @@
 Lecture 21: Functions
 - functions are the main building blocks of the program. They allow the code to be used many times without repetition.
 
-0. Function Declaration
+0. Function Declarations
 - to create a function, we use a function declaration.
 - the `function` keyword goes first, then goes the name of the function, then a list of parameters (optional) between the parentheses (comma-separated), and finally the function body (the code of the function) between curly braces.
 - we call/execute the function by using its name followed by parentheses.
@@ -35,7 +35,7 @@ Lecture 21: Functions
 - two independent actions deserve two independent functions.
 - functions should be short and do exactly one thing.
 - if that thing is big, maybe it is worth it to split the function into smaller ones.
-- a separate function us not only easier to test and debug, its very existence is a great comment.
+- a separate function is not only easier to test and debug, its very existence is a great comment.
 
 6. Function Expressions
 - in JavaScript, a function is not a magical language structure, but a special kind of value.
@@ -58,3 +58,95 @@ Exercise:
 3. firstFn: a function that will do an arithmetic operation with the two numbers.
 4. secondFn: a function that will do an arithmetic operation with the two numbers.
 */
+
+// global/outer variable
+let greeting = "Hi";
+let nameToPrint = "John";
+
+// declaring the function
+function print() {
+  // local/inner variable
+  // shadowing the outer variable
+  console.log("AsSalam Alaikum, Danya.");
+
+  let nameToPrint = "Ahmed";
+
+  // modifying the outer variable
+  greeting = "AsSalam Alaikum";
+
+  console.log(`${greeting}, ${nameToPrint}!`);
+}
+
+console.log("Greeting: ", greeting);
+
+// console.log(nameToPrint); // ReferenceError: nameToPrint is not defined
+
+print(); // calling/executing the function
+
+console.log("Greeting: ", greeting);
+
+// input (optional) -> function (action) -> output (optional)
+
+function createGreetingMessage(someone, age = 18) {
+  // old JavaScript
+  // setting a default value for the parameter (method no. 01)
+  // if (someone === undefined) someone = "Haneen";
+
+  // setting a default value for the parameter (method no. 02)
+  return `AsSalam Alaikum, ${
+    someone || "Anonymous"
+  }! You are ${age} years old.`;
+
+  console.log("Done Creating The Message"); // will be ignored because it came after `return`
+}
+
+// console.log(someone); // ReferenceError: someone is not defined
+
+createGreetingMessage();
+const esraaGreeting = createGreetingMessage("Esraa", 20);
+const aboodGreeting = createGreetingMessage("Abood", 25);
+
+console.log(esraaGreeting);
+console.log(aboodGreeting);
+
+console.log(console.log("Shawqi"));
+console.log(createGreetingMessage("Shawqi", 26));
+// createGreetingMessage(true, 10 >= 20);
+
+function confirmIsAuthorized() {
+  return confirm("Do you have a permission from your parents/lawyers?");
+}
+
+function checkIsLegal(age) {
+  // if (age >= 18) return true;
+  // return confirmIsAuthorized();
+
+  console.log("------ Task 01 --------");
+  // return age >= 18 || confirmIsAuthorized();
+  return age >= 18 ? true : confirmIsAuthorized();
+}
+
+if (checkIsLegal(20)) console.log("Shawqi is legal");
+else console.log("Shawqi is not legal");
+
+// 2 ** 3 -> 2 * 2 * 2 -> 8
+
+function power(base, exponent) {
+  if (base % 1 !== 0 || exponent % 1 !== 0) {
+    console.log("Please enter an integer.");
+    return null;
+  }
+
+  let result = base;
+
+  for (let i = 1; i < exponent; i++) {
+    result *= base;
+  }
+
+  return result;
+}
+
+console.log(power(2, 0.5));
+console.log(power(2, 3) === 8);
+console.log(power(3, 3));
+console.log(power(3, 3) === 27);
