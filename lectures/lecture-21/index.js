@@ -37,6 +37,8 @@ Lecture 21: Functions
 - if that thing is big, maybe it is worth it to split the function into smaller ones.
 - a separate function is not only easier to test and debug, its very existence is a great comment.
 
+Lecture 22
+
 6. Function Expressions
 - in JavaScript, a function is not a magical language structure, but a special kind of value.
 - the syntax we used before is called a function declaration.
@@ -56,7 +58,33 @@ Exercise:
 1. a: number
 2. b: number
 3. firstFn: a function that will do an arithmetic operation with the two numbers.
-4. secondFn: a function that will do an arithmetic operation with the two numbers.
+4. secondFn: a function that will do another arithmetic operation with the two numbers.
+
+Exercise 02:
+- create a function that takes three parameters:
+- a: a question
+- b: a function to be executed if the user confirmed the question.
+- c: a function to be executed if the user denied the question.
+
+9. Function Declarations vs Function Expressions
+
+9.1 Syntax
+- function declaration: function name (parameters) { body }
+- a function declared as a separate statement, in the main code flow.
+- function expression: function (parameters) { body }
+- a function created inside an expression or inside another syntax construct.
+
+9.2 Creation
+- another subtle difference is when a function is created by the JavaScript engine.
+- a function declaration can be called earlier than it is defined.
+- that is due to internal algorithms, when JavaScript prepares the whole script, it first looks for global Function Declarations and creates them.
+- a function expression is created when the execution reaches it and it is usable only from that moment.
+
+10. Arrow Functions
+- there is another very simple and concise syntax for creating functions. That is often better than Function Expressions.
+- it is called Arrow Functions.
+- the syntax is: parameter => body
+- arrow functions can be used in the same places as function expressions.
 */
 
 // global/outer variable
