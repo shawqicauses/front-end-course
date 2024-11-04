@@ -1,5 +1,5 @@
 /*
-Lecture 23: JavaScript Objects - References and Copying - Garbage Collection
+Lecture 23: JavaScript Objects - References and Copying
 
 0. Objects
 - as we know, there are 8 data types in JavaScript: string, number, bigint, boolean, null, undefined, object, and symbol.
@@ -59,6 +59,8 @@ Lecture 23: JavaScript Objects - References and Copying - Garbage Collection
 - to make two objects truly separate, we should use a cloning loop that examines each key's value and if it is an object, then replicate its structure as well. this is called deep cloning or structured cloning.
 - there is `structuredClone` function that implements deep cloning.
 
+Lecture 24
+
 15. Garbage Collection
 - memory management in JavaScript is performed automatically and invisibly to us. we create primitives, objects, functions... all that takes memory.
 - what happens when something is not needed anymore? how does JavaScript engine discover it and clean it up?
@@ -94,6 +96,50 @@ B) any other value is considered reachable if it is from a root by a reference o
 - objects are usually created to represent entities of the real world, such as users, orders, etc.
 - and in the real world, the user can act: select something from the shopping cart, log in, log out, etc.
 - actions are represented in JavaScript by function.
+- a function that is a property of an object is called a method.
+- of course we can use a pre-declared function as a method.
+
+17.1 Object-Oriented Programming (OOP)
+- when we write our code using objects to represent entities, that is called object-oriented programming (OOP).
+- OOP is a big thing, an interesting science of its own. How to use the right entities? How to organize the interaction between them? ... etc.
+
+17.2 Method Short-Hand
+- to be honest, the notations are not full identical. There are subtle differences related to object inheritance (will be covered later).
+
+17.3 `this` In Methods
+- it is common that an object method needs to access the information stored in the object to do its job.
+- to access the object, a method can use the `this` keyword.
+- the value of the `this` keyword is the object (for now).
+- during the execution of the method, the value of `this` will be the object.
+- technically, it is also possible to access the object without `this`. But...
+
+17.4 `this` Is Not Bound
+- in JavaScript, the `this` keyword behaves unlike other programming languages. It can be used in any function, even if it is not a method.
+- the value of `this` is evaluated during the run-time, depending on the context. But.. what context?
+- global functions context: in strict mode, the `this` keyword is `undefined`, in non-strict mode, it is the global object `window`.
+
+17.5 Arrow Functions Have No `this`
+- arrow functions do not have their own `this` keyword. When we reference `this` inside an arrow function, it refers to the outer "normal" function.
+
+18. Constructor, Operator `new`
+- the regular {...} syntax allows us to create on object, but often we need to create many similar objects, like multiple users, menu items, and so on.
+- that can be done using constructors functions and "new" operator.
+- a constructor function is technically a function with tow conventions: 1. they are named with a capital letter first. 2. they should be executed using the `new` operator.
+
+18.1 What Happens When We Use `new` With A Constructor Function?
+1. the `new` operator creates a new empty object and assigns it to `this`.
+2. the function body executes.
+3. the function returns the `this` value.
+
+- this is the main purpose of constructors: to create and object and return it (in order to implement reusable object creation code).
+
+- technically, any function can be used as a constructor (except for the arrow functions).
+
+18.2 Constructor Mode Test: `new.target`
+
+18.3 Return From Constructors
+
+18.4 Omitting Parentheses
 */
 
 console.log("------ Objects ------");
