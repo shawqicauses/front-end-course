@@ -92,6 +92,7 @@ B) any other value is considered reachable if it is from a root by a reference o
 2. incremental collection.
 3. idle-time collection.
 
+Lecture 26
 17. Object Methods, `this` Keyword
 - objects are usually created to represent entities of the real world, such as users, orders, etc.
 - and in the real world, the user can act: select something from the shopping cart, log in, log out, etc.
@@ -101,7 +102,7 @@ B) any other value is considered reachable if it is from a root by a reference o
 
 17.1 Object-Oriented Programming (OOP)
 - when we write our code using objects to represent entities, that is called object-oriented programming (OOP).
-- OOP is a big thing, an interesting science of its own. How to use the right entities? How to organize the interaction between them? ... etc.
+- OOP is a big thing, an interesting science of its own. How to use the right entities? How to organize the interactions between them? ... etc.
 
 17.2 Method Short-Hand
 - to be honest, the notations are not full identical. There are subtle differences related to object inheritance (will be covered later).
@@ -140,6 +141,15 @@ B) any other value is considered reachable if it is from a root by a reference o
 18.3 Return From Constructors
 
 18.4 Omitting Parentheses
+
+18.5 Methods In Constructor
+
+19. Optional Chaining
+- the optional chaining `?.` is a safe way to access nested object properties, even if an intermediate property does not exist.
+
+19.1 The Non-Existing Property Problem
+
+19.2 Short-Circuiting
 */
 
 console.log("------ Objects ------");
