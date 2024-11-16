@@ -122,17 +122,18 @@ Lecture 26
 17.5 Arrow Functions Have No `this`
 - arrow functions do not have their own `this` keyword. When we reference `this` inside an arrow function, it refers to the outer "normal" function.
 
+Lecture 27
 18. Constructor, Operator `new`
 - the regular {...} syntax allows us to create on object, but often we need to create many similar objects, like multiple users, menu items, and so on.
 - that can be done using constructors functions and "new" operator.
-- a constructor function is technically a function with tow conventions: 1. they are named with a capital letter first. 2. they should be executed using the `new` operator.
+- a constructor function is technically a function with two conventions: 1. they are named with a capital letter first. 2. they should be executed using the `new` operator.
 
 18.1 What Happens When We Use `new` With A Constructor Function?
 1. the `new` operator creates a new empty object and assigns it to `this`.
 2. the function body executes.
 3. the function returns the `this` value.
 
-- this is the main purpose of constructors: to create and object and return it (in order to implement reusable object creation code).
+- this is the main purpose of constructors: to create an object and return it (in order to implement reusable object creation code).
 
 - technically, any function can be used as a constructor (except for the arrow functions).
 
@@ -150,6 +151,57 @@ Lecture 26
 19.1 The Non-Existing Property Problem
 
 19.2 Short-Circuiting
+
+Lecture 28
+20. Methods Of Primitives
+- JavaScript allows us to work with primitives as if they were objects.
+- it also provides methods to call as such.
+- but how does it work if primitives are not objects?
+
+20.1 A Primitive As An Object
+- a paradox faced by the creator of JavaScript.
+- these are many things one would want to do with a primitive, like a string or a number.
+- it would be great to access them using methods.
+- primitives must be as fast and lightweight as possible.
+
+- the solution? primitives are still primitive, a single value, as desired.
+- the language allows access to methods and properties of strings, numbers, and booleans.
+- in order for that to work, a special "object wrapper" that provides the extra functionality is created, and then is destroyed.
+
+- the "object wrapper" are different for each primitive type and are called `String`, `Number`, and `Boolean`.
+
+- `let text = "Hello";`
+- `text.toUpperCase();`
+
+- the string `text` is a primitive.
+- the moment of accessing its property, a special object is created that knows the value of the string, and has useful methods like `toUpperCase()`.
+- the methods runs and returns a new string.
+- then the special object is destroyed, leaving the primitive `text` alone.
+
+- so primitives can provide methods, but they still remain lightweight.
+
+- constructors `String`, `Number`, and `Boolean` are for internal use only.
+- null/undefined have no methods.
+
+21. Numbers
+- more ways to write a number.
+- hex, binary, and octal. (fun assignment).
+
+21.1 Rounding
+- `Math.floor()`, `Math.ceil()`, `Math.round()`, and `Math.trunc()`.
+- `toFixed(n)`.
+
+21.2 Imprecise Calculations (we will cover it later).
+
+21.3 `isNaN` and `isFinite`
+
+21.4 `parseInt` and `parseFloat`
+
+21.5 `Math.random()`
+
+21.6 `Math.max()` and `Math.min()`
+
+21.7 `Math.pow()`
 */
 
 console.log("------ Objects ------");
