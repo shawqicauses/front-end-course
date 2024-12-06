@@ -152,56 +152,267 @@ Lecture 27
 
 19.2 Short-Circuiting
 
-Lecture 28
+Lecture 30
 20. Methods Of Primitives
 - JavaScript allows us to work with primitives as if they were objects.
 - it also provides methods to call as such.
 - but how does it work if primitives are not objects?
+- a primitive is a value of a single thing (string, number, bigint, boolean, symbol, null, and undefined).
+- an object is capable of storing multiple values as properties ({name: "Shawqi"}).
+- there is other kinds of objects in JavaScript such as functions and arrays.
+- one of the best things about objects is that we can store a function as one of its properties (we called it methods).
+- there are many built-in objects already exists and they have different properties and methods (we will discover them soon).
+- but theres features come with a cost, objects are heavier than primitives, they require additional resources to support the internal machinery.
 
 20.1 A Primitive As An Object
 - a paradox faced by the creator of JavaScript.
 - these are many things one would want to do with a primitive, like a string or a number.
 - it would be great to access them using methods.
-- primitives must be as fast and lightweight as possible.
-
+- also, primitives must be as fast and light-weight as possible.
 - the solution? primitives are still primitive, a single value, as desired.
 - the language allows access to methods and properties of strings, numbers, and booleans.
 - in order for that to work, a special "object wrapper" that provides the extra functionality is created, and then is destroyed.
+- the "object wrappers" are different for each primitive type and are called `String`, `Number`, and `Boolean`.
 
-- the "object wrapper" are different for each primitive type and are called `String`, `Number`, and `Boolean`.
-
-- `let text = "Hello";`
-- `text.toUpperCase();`
-
-- the string `text` is a primitive.
+- for example, a string is a primitive.
 - the moment of accessing its property, a special object is created that knows the value of the string, and has useful methods like `toUpperCase()`.
-- the methods runs and returns a new string.
+- the methods run and return a new string.
 - then the special object is destroyed, leaving the primitive `text` alone.
-
-- so primitives can provide methods, but they still remain lightweight.
-
+- so primitives can provide methods, but they still remain light-weight.
+- the JavaScript engine highly optimizes this process, it may even skip the creation of the extra object at all, but it must still adhere to the specification and behave as if it creates one.
 - constructors `String`, `Number`, and `Boolean` are for internal use only.
-- null/undefined have no methods.
+- some languages like Java allow us to explicitly create "wrapper objects" for primitives using a syntax like `new Number(1)`, in JavaScript that is also possible for historical reasons, but highly unrecommended, things will go crazy in several places. 
+- null/undefined have no methods. they are the exceptions, they have no corresponding "wrapper objects" and provide no methods.
+
+20.2 Tasks:
+- can you add a string property?
+
+let string = "Hello";
+string.number = 8;
+console.log(string.number);
 
 21. Numbers
-- more ways to write a number.
-- hex, binary, and octal. (fun assignment).
+- in modern JavaScript there are two types of numbers: regular numbers and BigInt numbers.
+- more ways to write a number:
+1. underscore syntactic sugar: 1_000_000.
+2. `e` syntactic sugar: 1e9 -> 1_000_000_000 / 1-e3 -> 0.001.
+3. `toString`, Hex, Binary, and Octal Numbers (fun assignment, search for it).
 
 21.1 Rounding
-- `Math.floor()`, `Math.ceil()`, `Math.round()`, and `Math.trunc()`.
-- `toFixed(n)`.
+- rounding is one of the most used operations when working with numbers.
+- `Math` is one of the built-in objects in JavaScript.
+- `Math.floor()` rounds down: 3.1 becomes 3, -1.1 becomes -2.
+- `Math.ceil()` rounds up: 3.1 becomes 4, -1.1 becomes 1.
+- `Math.round()` rounds to the nearest integer: 3.1 becomes 3, 3.6 becomes 4. In the middle case 3.5 becomes 4 and -3.5 becomes -3.
+- `Math.trunc()` removes anything after the decimal point without rounding 3.1 becomes 3, -1.1 becomes 1.
+- `toFixed(n: number)` rounds the number to `n` digits after the point and returns a string representation of the result. if the decimal part is shorter than required, zeros are appended to the end.
 
-21.2 Imprecise Calculations (we will cover it later).
+22.2 Imprecise Calculations
+- internally, a (regular) number (not BigInt) is represented in 64-bit format, so there are exactly 64 bits to store a number: 52 of them are used to store the digits, 11 of them store the position of the decimal point, and 1 bit is for the sign.
+- if a number is really huge, it may overflow the 64-bit storage and become a special numeric value `Infinity`.
+- it happens quite often the loss of precision.
+- consider this: 0.1 + 0.2 === 0.3 (false?) / 0.1 + 0.2 === 0.30000000000000004 (true?).
+- why does this happen? a number is stored in memory in its binary form, a sequence of bits - ones and zeros. but frictions like 0.1 and 0.2 that look simple in the decimal numeric system are actually unending frictions in their binary form.
+- 0.1 is 1/10, one-tenth in the decimal numeral system, such numbers are easily representable. compare it to 1/3 one-third. it becomes an endless fraction 0.333333(3).
+- so division by powers 10 is guaranteed to work well in the decimal system, but division by 3 is not. For the same reason, in the binary numeral system, the division by powers of 2 is guaranteed to work well, but 1/10 becomes an endless binary fraction.
+- there is no way to store exactly 0.1 or exactly 0.2 using the binary system, just like there is now way to store one-third as a decimal friction.
+- the numeric format (IEEE-754) solves this by rounding to the nearest possible number. these rounding rules normally do not allow us to see that "tiny precision loss", but it exists.
+- we can see this in actions using `0.1.toFixed(20)`. and when we sum two numbers, their "precision loss" add up. that is why 0.1 + 0.2 is not exactly 0.3.
+- not only JavaScript has this issue. it exists in many other programming languages.
 
 21.3 `isNaN` and `isFinite`
+- `NaN`, `Infinity`, and `-Infinity` are special numeric values but not normal numbers, so there are special functions to check for them: `isNaN` and `isFinite`.
+- `isNaN` converts its argument to a number and then tests it for being `NaN`.
+- `isFinite` converts its argument to a number and returns true if it is a regular number.
+- but do we need this functions? can not we just use the comparison `number === NaN`? unfortunately not, the value `NaN` is a unique in that it does not equal any thing including it self.
 
-21.4 `parseInt` and `parseFloat`
+21.4 `Number.isNaN()` and `Number.isFinite()`
+- the more strict versions of `isNaN` and `isFinite` functions.
+- they do not auto convert their argument into a number, but check if it belongs to the number type instead. 
 
-21.5 `Math.random()`
+21.4 `parseInt()` and `parseFloat()`
+- they read a number from a string until they can not.
+- `parseInt()` reads integers, `parseFloat()` reads floating-point numbers.
+- `parseInt("100rem")` -> 100
+- `parseFloat("100.20rem")` -> 100.20
+- `parseInt("A100.20rem")` -> NaN
 
-21.6 `Math.max()` and `Math.min()`
+21.5 `Math.random()`, `Math.max()`, `Math.min()`, and `Math.pow()`
 
-21.7 `Math.pow()`
+22. Strings
+- in JavaScript textual data is stored as strings, there is not separate type for a single character.
+- quotes: single, double, and back-ticks. single and double are essentially the same. back-ticks allow us to embed any expression into the string, by wrapping it in ${...}.
+- another advantage of using back-ticks is that they allow a string to span multiple lines.
+
+22.1 Special Characters
+- it is still possible to create multi-line strings with single and double quotes by using so-called "new-line character" written as "\n", which denotes a line break.
+
+character    description
+\n           new line
+\' \" \`     quote (escape quote)
+\\           back-slash (escape back-slash)
+\t           tab
+
+- as you can see, all special characters start with a back-slash character (\). it is also called an "escape character".
+
+22.2 String Length
+- `length` property has the string length: `"Shawqi".length` -> 6
+
+22.3 Accessing Characters
+- to get a character at position (index), use square brackets `[index]` or call the `at(index)` method. the first character starts from the zero position/index.
+
+let string = "Shawqi";
+string[0]; -> "S"
+string.at(0); -> "S"
+string[length - 1]; -> "i"
+string.at(-1); -> "i"
+
+- iterate over characters using `for..of`:
+
+for (const character of string) {
+  console.log(string[character])
+}
+
+22.4 Strings Are Immutable
+- strings can not be changed in JavaScript. it is impossible to change a character.
+
+string[0] = "s"; -> error
+
+22.5 Changing The Case `toLowerCase()` and `toUpperCase()`
+
+22.6 Searching For Sub-Strings `indexOf()`, `lastIndexOf()`, `includes()`, `startsWith()` and `endsWith()`
+
+22.7 Getting a Sub-String `slice()`, `substring()`, and `substr()`
+- `slice(start, end)`:
+returns the part of the string from `start` to `end` (not including end).
+if there is no `end` slice goes till the end of the string.
+negative values mean the position is counted from the end of the string.
+
+- `substring(start, end)`:
+returns the part of the string between `start` and `end` (not including end).
+this is almost the same as `slice()` but it allows the `start` to be greater than the `end`.
+negative values are not supported.
+
+- `substr(start, length)`:
+returns the part of the string from `start` with the given `length`.
+negative values are allowed for `start`.
+
+22.8 Trimming String `trim()`
+
+23. Arrays
+- objects allow us to store keyed collections of values.
+- what if we need an ordered collection where we have a 1st, 2nd, and 3rd element and so on to store list of things in order.
+- we can not use objects here because they are not ordered, they do not provide methods to manage the order of elements, or to elements at the beginning, at the end, or even between existing elements.
+
+23.1 Arrays Declaration
+- like objects:
+
+const array = new Array();
+const array = [];
+
+- almost all the time, the second syntax is used. we can supply initial elements in the brackets.
+
+const array = ["Shawqi", "Hatem", "Something"];
+
+- array elements are numbered, starting with zero. we can get an elements by its number in square brackets.
+
+console.log(array[0]); -> "Shawqi"
+
+- we can replace elements.
+
+array[0] = "Other Name";
+-> ["Other Name", "Hatem", "Something"]
+
+- or add a new one to the array.
+
+array[3] = "Fares";
+-> ["Other Name", "Hatem", "Something", "Fares"]
+
+- the total count of the elements in the array is its `length`.
+
+array.length -> 4.
+
+- an array can store elements of any type.
+- for negative index values we use `at()` method.
+
+23.2 A Queue and A Stack: Pop, Push, Shift, and Un-Shift
+- a queue is one of the most common uses of an array. in computer science this means an ordered collection of elements which supports two operations:
+1. push: appends an elements to the end.
+2. shift: get an element from the beginning, advancing the queue, so the the 2nd element becomes the 1st.
+- arrays support both operations.
+
+- a stack supports two operations:
+1. push: appends an element to the end.
+2. pop: takes an element from the end.
+- for stacks, the latest pushed item is received first, that is also called LIFO (Last-In-First-Out) principle. for queues, we have FIFO (First-In-First-Out).
+
+- arrays in JavaScript can work both as a queue and as a stack. they allow you to add/remove elements, both to/from the beginning or the end.
+- in computer science, the data structure that allows this, is called dequeue.
+
+- `pop`: extracts the last element of the array and returns it.
+- `push`: append the elements to the end of the array.
+- `shift`: extracts the first element of the array and returns it.
+- `unshift`: add the element to the beginning of the array.
+
+- `push` and `unshift` can add multiple elements at once.
+
+23.3 Internals
+- an array is a special kind of object. the square brackets used to access a property `array[0]` actually come from the object syntax. that is essentially the same as `object[key]` where `array` is the object while numbers (indexes) are used as keys.
+- they extend objects providing special methods to work with the ordered collections of data and also the `length` property. but at the core it is still an object.
+
+- but what makes arrays really special in their internal representation? the engine tries to store its elements in the contiguous memory area, one after another, and there are other optimizations as well, to make arrays work really fast.
+
+- but they all break if we quit working with an array as with an ordered collection and start working with it as if it were a regular object. the engine will see that we are working with the array as wit ha regular object. array-specific optimizations are not suited for such cases and will be turned off, their benefits disappear.
+
+- the ways to misuse an array:
+1. add a non-numeric properties like `array.test = 5`.
+2. make holes, like: add `array[0]` and then `array[1000]` (and nothing between them).
+3. fill the array in the reverse order.
+
+- please think of arrays as special structures to work with the ordered data. they provide special methods for that. arrays are carefully tuned inside JavaScript engines to work with contiguous ordered data, please use them this way. and if you need arbitrary keys, chances are high that you actually require a regular object.
+
+23.4 Performance
+- methods `push`/`pop` run fast, while `shift`/`unshift` are slow.
+- why it is faster to work with the end of an array than with its beginning?
+- the `shift` operation must do three things here: `array.shift()`
+1. remove the element with the index 0.
+2. move all elements to the left, re-number them from the index 1 to 0, from 2 to 1, and so on.
+3. Update the `length` property.
+
+- the more elements in the array the more time to move them, more in-memory operations.
+
+- the similar thing happens with `unshift`, to add an element to the beginning of the array we need first to move existing elements to the right, increasing their indexes.
+
+- `push`/`pop` do not need to move anything, to extract an element from the end, the `pop` method cleans the index and shortens `length`.
+
+- again, the `pop` method does not need to move anything because other elements keep their indexes. that is why it is blazingly fast.
+
+23.5 Loops `for..in` and `for..of`
+- the loop `for..in` iterates over all properties not only the numeric ones.
+- there are so-called "array-like" objects in the browser and in other environments, that look like arrays. that is, they have `length` and indexes properties, but they may also have other non-numeric properties and methods, which we usually do not need.
+- the `for..in` loop will list them though. so if we need to work with array-like objects, then these extra properties can become a problem.
+- the `for..in` loop is optimized for generic objects, not arrays, and thus is 10-100 times slower. of course it is still fast, but we should be aware of the difference.
+- generally, we should not use `for..in` for arrays.
+
+23.6 A Word About `length` and Truncating/Clearing Arrays
+
+23.7 `new Array()`
+
+23.8 Multi-Dimensional Arrays
+
+23.9 `toString`
+
+23.10 Do Not Compare Arrays With `=`
+
+24. Array Methods
+- how to delete an element from the array? the arrays are objects so we can use `delete` but the array will still have the same length, because delete removes a value by the key. this is fine for objects but for arrays we usually want the rest of the elements to shift and occupy the freed place. we expect to have a shorter array now.
+
+24.1 `splice()`, `slice()`, and `concat()`
+- `array.splice(start, count, element_1, element_2, elements...)`: it modifies `array` starting from the index `start` removes `count` elements and inserts element_1 and 2 if they exists at their place. returns an array of the removed elements.
+- `slice(start, end)`: it returns a new array copying to it all items from index `start` to `end` (not including end).
+- negative values are allowed in both methods.
+
+25.2 `forEach()`
 */
 
 console.log("------ Objects ------");
