@@ -162,11 +162,11 @@ Lecture 30
 - there is other kinds of objects in JavaScript such as functions and arrays.
 - one of the best things about objects is that we can store a function as one of its properties (we called it methods).
 - there are many built-in objects already exists and they have different properties and methods (we will discover them soon).
-- but theres features come with a cost, objects are heavier than primitives, they require additional resources to support the internal machinery.
+- but their features come with a cost, objects are heavier than primitives, they require additional resources to support the internal machinery.
 
 20.1 A Primitive As An Object
 - a paradox faced by the creator of JavaScript.
-- these are many things one would want to do with a primitive, like a string or a number.
+- there are many things one would want to do with a primitive, like a string or a number.
 - it would be great to access them using methods.
 - also, primitives must be as fast and light-weight as possible.
 - the solution? primitives are still primitive, a single value, as desired.
@@ -181,7 +181,7 @@ Lecture 30
 - so primitives can provide methods, but they still remain light-weight.
 - the JavaScript engine highly optimizes this process, it may even skip the creation of the extra object at all, but it must still adhere to the specification and behave as if it creates one.
 - constructors `String`, `Number`, and `Boolean` are for internal use only.
-- some languages like Java allow us to explicitly create "wrapper objects" for primitives using a syntax like `new Number(1)`, in JavaScript that is also possible for historical reasons, but highly unrecommended, things will go crazy in several places. 
+- some languages like Java allow us to explicitly create "wrapper objects" for primitives using a syntax like `new Number(1)`, in JavaScript that is also possible for historical reasons, but highly unrecommended, things will go crazy in several places.
 - null/undefined have no methods. they are the exceptions, they have no corresponding "wrapper objects" and provide no methods.
 
 20.2 Tasks:
@@ -213,9 +213,9 @@ console.log(string.number);
 - it happens quite often the loss of precision.
 - consider this: 0.1 + 0.2 === 0.3 (false?) / 0.1 + 0.2 === 0.30000000000000004 (true?).
 - why does this happen? a number is stored in memory in its binary form, a sequence of bits - ones and zeros. but frictions like 0.1 and 0.2 that look simple in the decimal numeric system are actually unending frictions in their binary form.
-- 0.1 is 1/10, one-tenth in the decimal numeral system, such numbers are easily representable. compare it to 1/3 one-third. it becomes an endless fraction 0.333333(3).
-- so division by powers 10 is guaranteed to work well in the decimal system, but division by 3 is not. For the same reason, in the binary numeral system, the division by powers of 2 is guaranteed to work well, but 1/10 becomes an endless binary fraction.
-- there is no way to store exactly 0.1 or exactly 0.2 using the binary system, just like there is now way to store one-third as a decimal friction.
+- 0.1 is 1/10, one-tenth in the decimal numeric system, such numbers are easily representable. compare it to 1/3 one-third. it becomes an endless fraction 0.333333(3).
+- so division by powers 10 is guaranteed to work well in the decimal system, but division by 3 is not. For the same reason, in the binary numeric system, the division by powers of 2 is guaranteed to work well, but 1/10 becomes an endless binary fraction.
+- there is no way to store exactly 0.1 or exactly 0.2 using the binary system, just like there is no way to store one-third as a decimal friction.
 - the numeric format (IEEE-754) solves this by rounding to the nearest possible number. these rounding rules normally do not allow us to see that "tiny precision loss", but it exists.
 - we can see this in actions using `0.1.toFixed(20)`. and when we sum two numbers, their "precision loss" add up. that is why 0.1 + 0.2 is not exactly 0.3.
 - not only JavaScript has this issue. it exists in many other programming languages.
@@ -224,11 +224,11 @@ console.log(string.number);
 - `NaN`, `Infinity`, and `-Infinity` are special numeric values but not normal numbers, so there are special functions to check for them: `isNaN` and `isFinite`.
 - `isNaN` converts its argument to a number and then tests it for being `NaN`.
 - `isFinite` converts its argument to a number and returns true if it is a regular number.
-- but do we need this functions? can not we just use the comparison `number === NaN`? unfortunately not, the value `NaN` is a unique in that it does not equal any thing including it self.
+- but do we need these functions? can not we just use the comparison `number === NaN`? unfortunately not, the value `NaN` is a unique in that it does not equal any thing including it self.
 
 21.4 `Number.isNaN()` and `Number.isFinite()`
 - the more strict versions of `isNaN` and `isFinite` functions.
-- they do not auto convert their argument into a number, but check if it belongs to the number type instead. 
+- they do not auto convert their argument into a number, but check if it belongs to the number type instead.
 
 21.4 `parseInt()` and `parseFloat()`
 - they read a number from a string until they can not.
