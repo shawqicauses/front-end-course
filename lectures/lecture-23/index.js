@@ -239,8 +239,9 @@ console.log(string.number);
 
 21.5 `Math.random()`, `Math.max()`, `Math.min()`, and `Math.pow()`
 
+Lecture 31
 22. Strings
-- in JavaScript textual data is stored as strings, there is not separate type for a single character.
+- in JavaScript textual data is stored as strings, there is no separate type for a single character.
 - quotes: single, double, and back-ticks. single and double are essentially the same. back-ticks allow us to embed any expression into the string, by wrapping it in ${...}.
 - another advantage of using back-ticks is that they allow a string to span multiple lines.
 
@@ -270,13 +271,13 @@ string.at(-1); -> "i"
 - iterate over characters using `for..of`:
 
 for (const character of string) {
-  console.log(string[character])
+  console.log(character);
 }
 
 22.4 Strings Are Immutable
 - strings can not be changed in JavaScript. it is impossible to change a character.
 
-string[0] = "s"; -> error
+string[0] = "s"; -> error (in strict mode)
 
 22.5 Changing The Case `toLowerCase()` and `toUpperCase()`
 
