@@ -303,7 +303,7 @@ negative values are allowed for `start`.
 23. Arrays
 - objects allow us to store keyed collections of values.
 - what if we need an ordered collection where we have a 1st, 2nd, and 3rd element and so on to store list of things in order.
-- we can not use objects here because they are not ordered, they do not provide methods to manage the order of elements, or to elements at the beginning, at the end, or even between existing elements.
+- we can not use objects here because they are not ordered, they do not provide methods to manage the order of elements, or to append elements at the beginning, at the end, or even between existing elements.
 
 23.1 Arrays Declaration
 - like objects:
@@ -347,7 +347,7 @@ array.length -> 4.
 2. pop: takes an element from the end.
 - for stacks, the latest pushed item is received first, that is also called LIFO (Last-In-First-Out) principle. for queues, we have FIFO (First-In-First-Out).
 
-- arrays in JavaScript can work both as a queue and as a stack. they allow you to add/remove elements, both to/from the beginning or the end.
+- arrays in JavaScript can work both as a queue and as a stack at the same time. they allow you to add/remove elements, both to/from the beginning or the end.
 - in computer science, the data structure that allows this, is called dequeue.
 
 - `pop`: extracts the last element of the array and returns it.
@@ -378,7 +378,7 @@ array.length -> 4.
 - the `shift` operation must do three things here: `array.shift()`
 1. remove the element with the index 0.
 2. move all elements to the left, re-number them from the index 1 to 0, from 2 to 1, and so on.
-3. Update the `length` property.
+3. update the `length` property.
 
 - the more elements in the array the more time to move them, more in-memory operations.
 
