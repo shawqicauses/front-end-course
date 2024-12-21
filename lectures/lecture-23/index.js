@@ -404,16 +404,6 @@ array.length -> 4.
 23.9 `toString`
 
 23.10 Do Not Compare Arrays With `=`
-
-24. Array Methods
-- how to delete an element from the array? the arrays are objects so we can use `delete` but the array will still have the same length, because delete removes a value by the key. this is fine for objects but for arrays we usually want the rest of the elements to shift and occupy the freed place. we expect to have a shorter array now.
-
-24.1 `splice()`, `slice()`, and `concat()`
-- `array.splice(start, count, element_1, element_2, elements...)`: it modifies `array` starting from the index `start` removes `count` elements and inserts element_1 and 2 if they exists at their place. returns an array of the removed elements.
-- `slice(start, end)`: it returns a new array copying to it all items from index `start` to `end` (not including end).
-- negative values are allowed in both methods.
-
-25.2 `forEach()`
 */
 
 console.log("------ Objects ------");
